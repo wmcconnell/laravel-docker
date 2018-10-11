@@ -10,3 +10,12 @@ services:
     environment:
       - "DB_PORT=3306"
       - "DB_HOST=database"
+  web:
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    working_dir: /var/www
+    volumes_from:
+      - app
+    ports:
+      - 8080:80
